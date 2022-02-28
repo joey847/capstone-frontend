@@ -20,7 +20,7 @@ class FileUpload extends React.Component {
     fileUploadHandler = () => {
         const formData = new FormData();
         formData.append('file', this.state.selectedFile, this.state.selectedFile.name);
-        axios.post('http://localhost:8082/api/file/s3/upload', formData)
+        axios.post('http://localhost:8082/api/file/upload', formData)
         .then(res => {
             console.log(res);
         });
