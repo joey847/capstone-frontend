@@ -28,22 +28,22 @@ class FileUpload extends React.Component {
 
     render() {
         return (
-            <div className='border border-blue-200 w-96 h-96 p-8 flex justify-center item-center drop-shadow-sm'>
-                <div className='h-full flex flex-col justify-center'>
+            <div className='mt-14 p-8 border border-black bg-red-50 border-2 border-dashed w-1/3 flex justify-center item-center'>
+                <div className='flex flex-col'>
                     
-                    <label className="flex flex-col w-full h-32 border-2 border-blue-200 border-dashed hover:bg-gray-100 hover:border-gray-300">
+                    <label className="border border-black hover:bg-gray-50 hover:border-gray-300">
                         <div className="flex flex-col items-center justify-center pt-7">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
-                            <p className="pt-1 text-sm text-gray-400 group-hover:text-gray-600">Upload a File</p>
+                            <p className="pt-1 text-black text-lg text-center group-hover:text-gray-600">Select Files to Upload</p>
                         </div>
-
+                        
                         <input type="file" onChange={this.fileHandler} className="opacity-0" />
                     </label>
-
-                    <button className='bg-blue-500 rounded-lg text-white font-bold py-2 px-4 mt-8 inline-flex items-center drop-shadow hover:drop-shadow-none' onClick={this.fileUploadHandler}>
-                        <span className="">Submit</span>
+                    
+                    <button className='bg-white border border-black text-black font-semibold py-2 px-4 mt-8 inline-flex justify-center items-center drop-shadow hover:drop-shadow-none hover:bg-gray-50 hover:border-gray-300' onClick={this.fileUploadHandler}>
+                        <span>Upload</span>
                     </button>
                 </div>
             </div>
