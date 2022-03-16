@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 class FileUpload extends React.Component {
     
@@ -10,19 +11,39 @@ class FileUpload extends React.Component {
     state = {
         selectedFile: null
     }
-
+    
     fileHandler = async (event) => {
         this.setState({
             selectedFile: event.target.files[0]
         })
     }
 
+    // Called when the user presses the upload button
     fileUploadHandler = () => {
+
+        // The file that we want to upload
         const formData = new FormData();
+
+        if (this.state.selectedFile === null) {
+            toast.error('File is required', { id: 'no-file-toast' },);
+            return;
+        }
+        
         formData.append('file', this.state.selectedFile, this.state.selectedFile.name);
+
+        // POST request using our form data.
         axios.post('/api/file/upload', formData)
+
+        // Success
         .then(res => {
-            console.log(res);
+            console.success(res);
+            toast.success('File uploaded successfully', { id: 'successful-upload-toast' },);
+        })
+        
+        // Failure
+        .catch((error) => {
+            console.error("error", error.response.data.message);
+            toast.error('Something went wrong. Please try again', { id: 'error-upload-toast' },);
         });
     }
 
@@ -42,7 +63,7 @@ class FileUpload extends React.Component {
                         <input type="file" onChange={this.fileHandler} className="opacity-0" />
                     </label>
                     
-                    <button className='bg-white border border-black text-black font-semibold py-2 px-4 mt-8 inline-flex justify-center items-center drop-shadow hover:drop-shadow-none hover:bg-gray-50 hover:border-gray-300' onClick={this.fileUploadHandler}>
+                    <button onClick={this.fileUploadHandler} className='bg-white border border-black text-black font-semibold py-2 px-4 mt-8 inline-flex justify-center items-center drop-shadow hover:drop-shadow-none hover:bg-gray-50 hover:border-gray-300'>
                         <span>Upload</span>
                     </button>
                 </div>
