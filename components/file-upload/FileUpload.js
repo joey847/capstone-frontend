@@ -18,6 +18,33 @@ class FileUpload extends React.Component {
         })
     }
 
+    fileName = "";
+    secretKey = "";
+    fileSize = "";
+    fileDetailsURL = "";
+    fileDownloadURL = "";
+
+    addFileRow = () => {
+        console.log("File Name: ", this.fileName);
+        console.log("Secret Key: ", this.secretKey);
+        console.log("File Size: ", this.fileSize);
+        this.fileDetailsURL = "/api/file/details/" + JSON.parse(this.secretKey);
+        this.fileDownloadURL = "/api/file/download/" + JSON.parse(this.secretKey);
+
+        document.getElementById("file-row").innerHTML +=
+        `<tr class="bg-white hover:bg-gray-50">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                ${JSON.parse(this.fileName)}
+            </th>
+            <td class="px-6 py-4 text-right">
+                <a href="${this.fileDetailsURL}" class="font-medium text-blue-600 hover:underline">Details</a>
+            </td>
+            <td class="px-6 py-4 text-right">
+                <a href="${this.fileDownloadURL}" download class="font-medium text-blue-600 hover:underline">Download</a>
+            </td>
+        </tr>`
+    }
+
     // Called when the user presses the upload button
     fileUploadHandler = () => {
 
@@ -36,19 +63,27 @@ class FileUpload extends React.Component {
 
         // Success
         .then(res => {
-            console.success(res);
+            console.log(res);
             toast.success('File uploaded successfully', { id: 'successful-upload-toast' },);
+
+            this.fileName = JSON.stringify(res.data.data.filename);
+            this.secretKey = JSON.stringify(res.data.data.secretKey);
+            this.fileSize = JSON.stringify(res.data.data.size);
+
+            // Create row for file table
+            this.addFileRow();
         })
         
         // Failure
         .catch((error) => {
-            console.error("error", error.response.data.message);
+            console.log("error", error);
             toast.error('Something went wrong. Please try again', { id: 'error-upload-toast' },);
         });
     }
 
     render() {
         return (
+            <>
             <div className='mt-14 p-8 border border-black bg-red-50 border-2 border-dashed w-1/3 flex justify-center item-center'>
                 <div className='flex flex-col'>
                     
@@ -68,6 +103,32 @@ class FileUpload extends React.Component {
                     </button>
                 </div>
             </div>
+
+            
+            { /* File table */ }
+            <div className="relative overflow-x-auto mt-5">
+                <table className="w-full text-sm text-left text-gray-500" id="file-table">
+                    <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" className="px-6 py-3">
+                                File name
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Details
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Download
+                            </th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="file-row">
+                        
+                    </tbody>
+                </table>
+            </div>
+            </>
         );
     }
 }
