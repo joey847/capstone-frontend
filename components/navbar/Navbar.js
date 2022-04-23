@@ -3,7 +3,7 @@ function Navbar() {
         <nav className="px-2 sm:px-4 py-4">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
 
-                <a href="#" className="flex">
+                <a href="/app" className="flex">
                     <p className="self-center text-3xl whitespace-nowrap">File<span className="font-bold text-red-400">Crate</span></p>
                 </a>
 

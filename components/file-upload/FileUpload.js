@@ -27,8 +27,8 @@ class FileUpload extends React.Component {
     addFileRow = () => {
         console.log("File Name: ", this.fileName);
         console.log("Secret Key: ", this.secretKey);
-        console.log("File Size: ", this.fileSize);
-        this.fileDetailsURL = "/api/file/details/" + JSON.parse(this.secretKey);
+        console.log("File Size in Bytes: ", this.fileSize);
+        this.fileDetailsURL = "/app/file/" + JSON.parse(this.secretKey);
         this.fileDownloadURL = "/api/file/download/" + JSON.parse(this.secretKey);
 
         document.getElementById("file-row").innerHTML +=
@@ -123,9 +123,7 @@ class FileUpload extends React.Component {
                     </thead>
 
 
-                    <tbody id="file-row">
-                        
-                    </tbody>
+                    <tbody id="file-row"></tbody>
                 </table>
             </div>
             </>

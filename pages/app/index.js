@@ -1,4 +1,4 @@
-import FileUpload from '../components/file-upload/FileUpload'
+import FileUpload from '../../components/file-upload/FileUpload'
 
 export default function Home() {
   return (
