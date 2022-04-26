@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import DateValue from './DateValue';
 import toast from 'react-hot-toast';
 
 class FileUpload extends React.Component {
@@ -30,7 +31,6 @@ class FileUpload extends React.Component {
         console.log("File Size in Bytes: ", this.fileSize);
         this.fileDetailsURL = "/app/file/" + JSON.parse(this.secretKey);
         this.fileDownloadURL = "/api/file/download/" + JSON.parse(this.secretKey);
-
         document.getElementById("file-row").innerHTML +=
         `<tr class="bg-white hover:bg-gray-50">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
@@ -84,8 +84,11 @@ class FileUpload extends React.Component {
     render() {
         return (
             <>
-            <div className='mt-14 p-8 border border-black bg-red-50 border-2 border-dashed w-1/3 flex justify-center item-center'>
+
+            {/* I added some responsive elements to the form to improve breakpoints */}
+            <div className='xs:w-full sm:w-full mt-14 p-8 border border-black bg-red-50 border-2 border-dashed lg:1/4 md:w-2/5 flex justify-center item-center'>
                 <div className='flex flex-col'>
+            <DateValue/>
                     
                     <label className="border border-black hover:bg-gray-50 hover:border-gray-300">
                         <div className="flex flex-col items-center justify-center pt-7">
