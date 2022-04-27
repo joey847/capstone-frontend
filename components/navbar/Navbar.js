@@ -1,11 +1,13 @@
+import Link from 'next/link'
+
 function Navbar() {
     return (
         <nav className="px-2 sm:px-4 py-4">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
 
-                <a href="/app" className="flex">
+                <Link href="/app" className="flex">
                     <p className="self-center text-3xl whitespace-nowrap">File<span className="font-bold text-red-400">Crate</span></p>
-                </a>
+                </Link>
 
                 <button data-collapse-toggle="mobile-menu" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
