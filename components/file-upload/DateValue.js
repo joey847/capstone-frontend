@@ -64,7 +64,7 @@ switch(dayOfWeek){
     break;
 
     case 3:
-        monthText = 'Aptril';
+        monthText = 'April';
     break;
 
     case 4:
