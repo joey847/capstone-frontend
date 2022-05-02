@@ -36,7 +36,7 @@ function Details({ file }) {
                             </button>
                         </div>
                     </div>
-
+                    
                     <div className="mt-5">
                         <label className='flex'>
                             <p>Share this file with others:</p>
