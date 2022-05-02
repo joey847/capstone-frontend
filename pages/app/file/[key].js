@@ -30,13 +30,13 @@ function Details({ file }) {
                                     <p className="pt-1 text-black text-base text-center group-hover:text-gray-600">{ file.size } Bytes</p>
                                 </div>
                             </label>
-
+                            
                             <button className='bg-white border border-black text-black font-semibold py-2 px-4 mt-8 inline-flex justify-center items-center drop-shadow hover:drop-shadow-none hover:bg-gray-50 hover:border-gray-300'>
                                 <a href={`/api/file/download/` + file.secretKey} download>Download</a>
                             </button>
                         </div>
                     </div>
-            
+
                     <div className="mt-5">
                         <label className='flex'>
                             <p>Share this file with others:</p>

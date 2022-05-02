@@ -5,8 +5,8 @@ function Navbar() {
         <nav className="px-2 sm:px-4 py-4">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
 
-                <Link href="/app" className="flex">
-                    <p className="self-center text-3xl whitespace-nowrap">File<span className="font-bold text-red-400">Crate</span></p>
+                <Link href="/" className="flex">
+                    <p className="self-center text-3xl whitespace-nowrap cursor-pointer">File<span className="font-bold text-red-400">Crate</span></p>
                 </Link>
 
                 <button data-collapse-toggle="mobile-menu" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
