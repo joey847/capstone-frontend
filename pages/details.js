@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useRouter } from 'next/router';
 
-function Details() {
+export default function Details() {
     const router = useRouter();
     const [file, setFile] = useState(null)
     const [isLoading, setLoading] = useState(false)

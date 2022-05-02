@@ -8,6 +8,9 @@ export default function Home() {
         <h3 className='text-base mt-3.5'>Files expire after 24hrs</h3>
       </div>
       <FileUpload />
+        <div className='footer'>
+            <a href={`${process.env.clientUrl}/terms-of-use`}>Terms of Service</a>
+        </div>
     </div>
   )
 }
