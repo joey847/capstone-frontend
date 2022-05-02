@@ -60,4 +60,3 @@ export default function Details() {
         </div>
     )
 }
-export default Details
