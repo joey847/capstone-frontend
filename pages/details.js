@@ -1,13 +1,17 @@
 import React, {useEffect, useState} from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 
 function Details() {
     const [data, setData] = useState(null)
     const [isLoading, setLoading] = useState(false)
-
+    
+    const router = useRouter();
+    console.log(router.query.file);
+    
     useEffect(() => {
         setLoading(true)
-        fetch(`/api/file/details/${key}`)
+        fetch(`https://filecrate.cc/api/file/details/275640c9-eaac-4080-ad7e-82a341ada1d4`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data)

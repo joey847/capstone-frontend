@@ -29,8 +29,10 @@ class FileUpload extends React.Component {
         console.log("File Name: ", this.fileName);
         console.log("Secret Key: ", this.secretKey);
         console.log("File Size in Bytes: ", this.fileSize);
-        this.fileDetailsURL = "/details?file=" + JSON.parse(this.secretKey);
-        this.fileDownloadURL = "/api/file/download/" + JSON.parse(this.secretKey);
+
+        this.fileDetailsURL = "http://localhost:3000/details?file=" + JSON.parse(this.secretKey);
+        this.fileDownloadURL = "https://filecrate.cc/api/file/download/" + JSON.parse(this.secretKey);
+        
         document.getElementById("file-row").innerHTML +=
         `<tr class="bg-white hover:bg-gray-50">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
@@ -59,7 +61,7 @@ class FileUpload extends React.Component {
         formData.append('file', this.state.selectedFile, this.state.selectedFile.name);
 
         // POST request using our form data.
-        axios.post('/api/file/upload', formData)
+        axios.post('https://filecrate.cc/api/file/upload', formData)
 
         // Success
         .then(res => {
