@@ -76,14 +76,15 @@ class FileUpload extends React.Component {
             <div className='xs:w-full sm:w-full mt-14 p-8 border border-black bg-red-50 border-2 border-dashed lg:1/4 md:w-2/5 flex justify-center item-center'>
                 <div className='flex flex-col'>
                     
-                    <DateValue />
+                    {/*<DateValue />*/}
+                    <span className='mb-5 td:underline'>By using our Service, you agree to our <a className='text-blue-600' href={`${process.env.clientUrl}/terms-of-use`}>Terms of Use</a>.</span>
                     
                     <label className="max-w-sm border border-black hover:bg-gray-50 hover:border-gray-300">
                         <div className="max-w-sm flex flex-col items-center justify-center pt-7">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
-                            <p id="file-upload-text" className="max-w-xs truncate pt-1 text-black text-lg text-center group-hover:text-gray-600">{this.state.selectedFile?.name ?? 'Select Files to Upload'}</p>
+                            <p id="file-upload-text" className="max-w-xs truncate pt-1 text-black text-lg text-center group-hover:text-gray-600">{this.state.selectedFile?.name ?? 'Select a File to Upload'}</p>
                         </div>
                         
                         <input type="file" onChange={this.fileHandler} className="opacity-0" />

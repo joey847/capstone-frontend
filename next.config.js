@@ -13,7 +13,7 @@ module.exports = {
   },
 
   env: {
-    clientUrl: 'http://localhost:3000',
-    serverUrl: 'http://localhost:5000',
+    clientUrl: 'https://filecrate.cc',
+    serverUrl: 'https://filecrate.cc',
   },
 }

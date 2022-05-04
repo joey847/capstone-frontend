@@ -2,7 +2,7 @@ export default function TermsOfUse() {
     return (
         <div className='flex flex-col items-center'>
             <div className='text-center mt-6'>
-                <h1 className='text-5xl font-bold'>Terms of Service</h1>
+                <h1 className='text-5xl font-bold'>Terms of Use</h1>
             </div>
 
             <div className='mt-14 p-8 border border-black bg-red-50 border-2 border-dashed w-2/3 justify-center item-center tos'>
